@@ -1,0 +1,8 @@
+{
+    "params":{
+        "websiteName":"Library System",
+        "logo":"/static/logo.png",
+        "username":"admin",
+        "password":"admin"
+    }
+}

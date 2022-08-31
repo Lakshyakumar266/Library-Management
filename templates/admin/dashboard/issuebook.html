@@ -1,0 +1,157 @@
+{% extends './admin/dashboard.html' %}
+
+{% block dashboard %}
+
+<div class="container">
+    <div class="mt-10 sm:mt-0">
+        <div class="mt-5 md:mt-0 md:col-span-2">
+            <h2 class="title-font sm:text-3xl text-2xl mb-4  text-gray-700">Borrow Book</h2>
+            <form action="/dashboard/issuebook" method="POST">
+                <div class="shadow overflow-hidden sm:rounded-md">
+                    <div class="px-4 py-5 bg-white sm:p-6">
+
+                        <div class="grid grid-cols-6 gap-6">
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="book_code" class="block text-sm font-medium text-gray-700">Book code</label>
+                                <div class="flex justify-center w-full">
+
+                                    <div class="input-group relative flex flex-wrap items-stretch w-full">
+                                        <input required type="text" name="book_code" id="book_code"
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md w-5/6"
+                                            placeholder="Book Code" aria-label="book_code"
+                                            aria-describedby="button-addon">
+
+                                        <button id="SearchBook"
+                                            class="btn inline-block px-4 py-2 border-2 border-gray-600 text-gray-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                            type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
+                                                height="20">
+                                                <path
+                                                    d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
+                                            </svg>
+                                        </button>
+                                        <small class="block mt-1 text-xs text-gray-600">Write your Book Code and Serach
+                                            to get the book Apear.</small>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="book_name" class="block text-sm font-medium text-gray-700">Book Name</label>
+
+                                <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 pt-2 pb-2"
+                                    id="book_name_div"> <i class="text-gray-600">Enter Book Code First.</i> </div>
+                                <small class="block mt-1 text-xs text-gray-600">You can't edit this feild. Write Book
+                                    Code Then Your Book Will Apear here.</small>
+
+                                <input required hidden type="text" name="book_name" id="book_name">
+                            </div>
+
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="student_name" class="block text-sm font-medium text-gray-700">Student
+                                    Name</label>
+                                <input required type="text" name="student_name" id="student_name"
+                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pt-2 pb-2"
+                                    placeholder="Student Name">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="admition_no" class="block text-sm font-medium text-gray-700">Admition
+                                    No.</label>
+                                <input required type="text" name="admition_no" id="admition_no"
+                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pt-2 pb-2"
+                                    placeholder="Admition Number">
+                            </div>
+                            <div class="col-span-6 sm:col-span-6">
+                                <label for="student_class" class="block text-sm font-medium text-gray-700">
+                                    Select Class </label>
+                                <select required id="student_class" name="student_class"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2 mb-2">
+                                    <option disabled selected value="0">Student Class</option>
+                                    <option value="4th">4</option>
+                                    <option value="5th">5</option>
+                                    <option value="6th">6</option>
+                                    <option value="7th">7</option>
+                                    <option value="8th">8</option>
+                                    <option value="9th">9</option>
+                                    <option value="10th">10</option>
+                                    <option value="11th">11</option>
+                                    <option value="12th">12</option>
+                                </select>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-6">
+                                <label for="return_date" class="block text-sm font-medium text-gray-700">
+                                    Return Date </label>
+                                <input required type="date" name="return_date" id="return_date"
+                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pt-1 pb-2">
+                                <small class="block mt-1 text-xs text-gray-600">1Rs. Fine will be charged after return
+                                    date overs.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <button type="submit"
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Borrow
+                            Book</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock dashboard %}
+
+{% block script %}
+<script>
+    let SearchBookBtn = document.getElementById('SearchBook')
+    SearchBookBtn.addEventListener("click", () => {
+        let book_code = document.getElementById('book_code').value
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/dashboard/issuebook");
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                let response = JSON.parse(xhr.responseText);
+
+                let BookInput = document.getElementById("book_name")
+                let Book_name_div = document.getElementById("book_name_div")
+                if (xhr.status == 200) {
+                    BookInput.value = response["book_name"]
+                    Book_name_div.innerHTML = response["book_name"]
+                }
+                if (xhr.status == 203) {
+                    alert(`${response["message"]}`)
+                    BookInput.value = ""
+                    Book_name_div.innerHTML = `<i class="text-gray-600">Enter Book Code First.</i>`
+                }
+                if (xhr.status == 303) {
+                    alert(`${response["message"]}`)
+                    BookInput.value = ""
+                    Book_name_div.innerHTML = `<i class="text-gray-600">Enter Book Code First.</i>`
+                }
+                else { }
+
+            }
+        };
+
+        let data = JSON.stringify({
+            searchbook: true,
+            book_code: book_code
+        });
+
+        xhr.send(data);
+
+    })
+
+</script>
+{% endblock %}

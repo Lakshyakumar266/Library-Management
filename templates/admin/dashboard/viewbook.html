@@ -1,0 +1,75 @@
+{% extends './admin/dashboard.html' %}
+
+{% block dashboard %}
+
+<div>
+    <h2 class="title-font sm:text-3xl text-2xl mb-4  text-gray-700">Manage Books</h2>
+    <div class="flex flex-col border rounded px-4 py-2">
+        <div class="overflow-x-auto sm:-mx-10 lg:-mx-10">
+            <div class="py-2 inline-block min-w-full sm:px-10 lg:px-10">
+                <div class="overflow-x-auto">
+                    <table id="books_table" class="min-w-full">
+                        <thead class="border-b">
+                            <tr>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    #
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Book Name
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Book code
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Author Name
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for book in books %}
+                                    
+                            <tr class="border-b">
+                                <td class="px-6 py-4 whitespace-nowrap   text-gray-900">
+                                    {{loop.index}}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.book_name[0:90]}}...
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.book_code}}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.author_name}}
+                                </td>
+                                <td class=" px-6 py-4 whitespace-nowrap">
+                                    <div class="flex space-x-2 justify-center">
+                                        <a href="editbook/{{book.sno}}"
+                                            class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Edit</a>
+
+                                        <button id="btn_delete_{{book.sno}}" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
+                                        <script>
+                                            document.getElementById("btn_delete_{{book.sno}}").addEventListener("click", ()=>{
+                                                var a = confirm("‘{{book.book_name}}’ --- Will be removed.",)
+                                                if (a == true) {
+                                                    window.location.href = 'deletebook/{{book.sno}}'
+                                                }else{
+                                                    return
+                                                }
+                                            })
+                                        </script>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock dashboard %}

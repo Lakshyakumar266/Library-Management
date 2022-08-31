@@ -1,0 +1,87 @@
+{% extends './admin/dashboard.html' %}
+
+{% block dashboard %}
+
+<div>
+    <h2 class="title-font sm:text-3xl text-2xl mb-4  text-gray-700">Manage Issued Books</h2>
+    <div class="flex flex-col border rounded px-4 py-2">
+        <div class="overflow-x-auto sm:-mx-10 lg:-mx-10">
+            <div class="py-2 inline-block min-w-full sm:px-10 lg:px-10">
+                <div class="overflow-x-auto">
+                    <table id="books_table" class="min-w-full">
+                        <thead class="border-b">
+                            <tr>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    #
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Book Name
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Book Code
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Student Name
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Student Class
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Admition no
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Issue date
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Return date
+                                </th>
+                                <th scope="col" class="  text-gray-900 px-6 py-4 text-left">
+                                    Action's
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for book in IssuedBooks %}
+                                    
+                            <tr class="border-b">
+                                <td class="px-6 py-4 whitespace-nowrap   text-gray-900">
+                                    {{loop.index}}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.book_name[0:54]}}...
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.book_code}}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.student_name[0:21]}}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.student_class}}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.admition_no}}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{ book.issue_date[0:10] }}
+                                </td>
+                                <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
+                                    {{book.return_date[0:10]}}
+                                </td>
+                                <td class=" px-6 py-4 whitespace-nowrap">
+                                    <div class="flex space-x-2 justify-center">
+                                        <a href="/dashboard/return/{{book.book_code}}/{{book.sno}}"
+                                            class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Return</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock dashboard %}
