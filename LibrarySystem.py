@@ -326,13 +326,14 @@ def returnTheBook(book_code, sno):
 
 if __name__ == "__main__":
     time.sleep(2)
-    print('''( System ): *****Welcome To My Library*****''')
+    print('''LIBRARY - - *****Welcome To Library System *****''')
     time.sleep(1)
-    print('( Owner ): Created by Lakshya Kumar')
+    print('LIBRARY - - Created by. Lakshya')
     time.sleep(1)
-    print('''( System ): Starting The Library... ''')
+    print('''SYSTEM - - Starting The Library... ''')
     time.sleep(1)
-    print('''( System ): Loading... ''')
+    print('''SYSTEM - - Loading... ''')
+    time.sleep(1)
     webbrowser.open('http://127.0.0.1:5000')
     app.run(debug=False)
 
