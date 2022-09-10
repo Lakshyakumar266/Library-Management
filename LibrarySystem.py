@@ -14,6 +14,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 db = SQLAlchemy(app)
 
+
 # Database class
 # Books
 class Book(db.Model):
@@ -324,17 +325,23 @@ def returnTheBook(book_code, sno):
 
     return redirect("/signin")
 
-if __name__ == "__main__":
-    time.sleep(2)
-    print('''LIBRARY - - *****Welcome To Library System *****''')
-    time.sleep(1)
+def run():
+    time.sleep(0.100)
+    print('''LIBRARY - - ***** Welcome To Library System *****''')
+    time.sleep(0.400)
     print('LIBRARY - - Created by. Lakshya')
-    time.sleep(1)
+    time.sleep(0.400)
     print('''SYSTEM - - Starting The Library... ''')
-    time.sleep(1)
+    time.sleep(0.400)
+    print('''SYSTEM - - Initilizing Database... ''')
+    time.sleep(0.600)
     print('''SYSTEM - - Loading... ''')
     time.sleep(1)
     webbrowser.open('http://127.0.0.1:5000')
-    app.run(debug=False)
+    app.run(debug=True)
 
-    
+
+if __name__ == "__main__":
+    run()
+    # import LibraryUi
+    # LibraryUi.LibrarySystemUi().run()
