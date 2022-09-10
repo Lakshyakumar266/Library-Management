@@ -14,7 +14,7 @@
                 </p>
             </div>
             <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero"
-                src="https://cdn.pixabay.com/photo/2015/11/19/21/11/book-1052014_960_720.jpg">
+                src='{{ url_for("static", filename="images/book-1052014_960_720.jpg")}}'>
         </div>
     </section>
 
@@ -105,7 +105,7 @@
                     <div class="rounded-lg shadow-lg h-full block bg-white">
                         <div class="flex justify-center">
                             <div class="flex justify-center" style="margin-top: -75px">
-                                <img src="https://avatars.githubusercontent.com/u/73013235"
+                                <img src='{{ url_for("static", filename="images/CPGLogo.png")}}'
                                     class="rounded-full mx-auto shadow-lg" alt="" style="width: 150px" />
                             </div>
                         </div>
