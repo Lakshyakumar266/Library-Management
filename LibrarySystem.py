@@ -337,11 +337,11 @@ def run():
     time.sleep(0.600)
     print('''SYSTEM - - Loading... ''')
     time.sleep(1)
-    webbrowser.open('http://127.0.0.1:5000')
-    app.run(debug=True)
+    webbrowser.open('http://127.0.0.1:5000')    
+    app.run(debug=False)
 
 
 if __name__ == "__main__":
-    run()
-    # import LibraryUi
-    # LibraryUi.LibrarySystemUi().run()
+    # run()
+    import LibraryUi
+    LibraryUi.LibrarySystemUi().run()
