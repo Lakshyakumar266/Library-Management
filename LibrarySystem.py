@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, request, session, jsonify, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date, time
+import webbrowser
+import time
 import json
 import requests
 
@@ -307,7 +309,6 @@ def returnTheBook(book_code, sno):
         logdin = True
         try:
             bookDetail = BorrowBook.query.filter_by(sno=sno, book_code=book_code).first()
-            print(book_code + "  -    " + sno)
             bookDetail.returning_date = datetime.today()
             bookDetail.returned = 1
             db.session.commit()
@@ -317,7 +318,6 @@ def returnTheBook(book_code, sno):
             db.session.commit()
             flash("book is returned to the library successfully.", "success")
         except Exception as e:
-            print(e)
             flash("cant return book now. Internal Server Error.", "danger")
         
         return redirect('/dashboard')
@@ -325,4 +325,15 @@ def returnTheBook(book_code, sno):
     return redirect("/signin")
 
 if __name__ == "__main__":
-    app.run(port=2000, debug=True)
+    time.sleep(2)
+    print('''( System ): *****Welcome To My Library*****''')
+    time.sleep(1)
+    print('( Owner ): Created by Lakshya Kumar')
+    time.sleep(1)
+    print('''( System ): Starting The Library... ''')
+    time.sleep(1)
+    print('''( System ): Loading... ''')
+    webbrowser.open('http://127.0.0.1:5000')
+    app.run(debug=False)
+
+    
