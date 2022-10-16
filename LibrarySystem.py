@@ -60,6 +60,10 @@ impdata = {
 # Home Routs
 @app.route("/", methods=["GET", "POST"])
 def index():
+    # To desble Home 
+    return redirect('/dashboard')
+
+    # Used For Home
     flash("welcome to "+ impdata["website_name"] +" A Library Management System.", "info")
     return render_template("index.html", impData=impdata)
 
@@ -326,6 +330,7 @@ def returnTheBook(book_code, sno):
     return redirect("/signin")
 
 def run():
+    # Terminal CLI
     time.sleep(0.100)
     print('''LIBRARY - - ***** Welcome To Library System *****''')
     time.sleep(0.400)
@@ -337,6 +342,8 @@ def run():
     time.sleep(0.600)
     print('''SYSTEM - - Loading... ''')
     time.sleep(1)
+
+    # To Start GUI
     webbrowser.open('http://127.0.0.1:5000')    
     app.run(debug=False)
 

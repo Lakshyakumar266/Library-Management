@@ -1,2 +1,4 @@
 /output
 /env
+/.vscode
+/.pytest_cache

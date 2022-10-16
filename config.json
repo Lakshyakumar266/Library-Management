@@ -1,8 +1,21 @@
 {
-    "params":{
-        "websiteName":"Library System",
-        "logo":"/static/logo.png",
-        "username":"admin",
-        "password":"admin"
+    "params": {
+        "websiteName": "Library System",
+        "logo": "/static/logo.png",
+        "icon": "/logo_white.ico",
+        "username": "admin",
+        "password": "admin",
+        "routs": {
+            "default": "LibrarySystem.py",
+            "secondery": "LibrarySystemkv.py"
+        },
+        "pannel": "/dashbaord",
+        "requrements": "requrements.txt",
+        "Information": {
+            "BaseLanguage": "Python 3.X",
+            "BaseLibrary": "Flask",
+            "database":"SQLAlchemy"
+        },
+        "license": "personal"
     }
 }
