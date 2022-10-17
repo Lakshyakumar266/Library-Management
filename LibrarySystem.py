@@ -345,7 +345,7 @@ def run():
 
     # To Start GUI
     webbrowser.open('http://127.0.0.1:5000')    
-    app.run(debug=True)
+    app.run(debug=False)
 
 
 if __name__ == "__main__":
