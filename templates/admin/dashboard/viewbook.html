@@ -30,13 +30,22 @@
                         </thead>
                         <tbody>
                             {% for book in books %}
-                                    
+
                             <tr class="border-b">
                                 <td class="px-6 py-4 whitespace-nowrap   text-gray-900">
                                     {{loop.index}}
                                 </td>
                                 <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
-                                    {{book.book_name[0:90]}}...
+                                    <span class="book-name" id="book-{{book.sno}}"></span>
+                                    <!-- {{book.book_name[0:90]}}... -->
+                                    <script>
+                                        var bookName = '{{book.book_name}}'
+                                        if (bookName.length <= 90) {
+                                            document.getElementById("book-{{book.sno}}").innerHTML = bookName;
+                                        } else {
+                                            document.getElementById("book-{{book.sno}}").innerHTML = "{{book.book_name[0:90]}}...";
+                                        };
+                                    </script>
                                 </td>
                                 <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
                                     {{book.book_code}}
@@ -49,13 +58,14 @@
                                         <a href="editbook/{{book.sno}}"
                                             class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Edit</a>
 
-                                        <button id="btn_delete_{{book.sno}}" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
+                                        <button id="btn_delete_{{book.sno}}"
+                                            class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
                                         <script>
-                                            document.getElementById("btn_delete_{{book.sno}}").addEventListener("click", ()=>{
+                                            document.getElementById("btn_delete_{{book.sno}}").addEventListener("click", () => {
                                                 var a = confirm("‘{{book.book_name}}’ --- Will be removed.",)
                                                 if (a == true) {
                                                     window.location.href = 'deletebook/{{book.sno}}'
-                                                }else{
+                                                } else {
                                                     return
                                                 }
                                             })

@@ -42,19 +42,38 @@
                         </thead>
                         <tbody>
                             {% for book in IssuedBooks %}
-                                    
+
                             <tr class="border-b">
                                 <td class="px-6 py-4 whitespace-nowrap   text-gray-900">
                                     {{loop.index}}
                                 </td>
                                 <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
-                                    {{book.book_name[0:54]}}...
+                                    <span class="book-name" id="book-{{book.sno}}"></span>
+                                    <!-- {{book.book_name[0:90]}}... -->
+                                    <script>
+                                        var bookName = '{{book.book_name}}';
+                                        if (bookName.length <= 60) {
+                                            document.getElementById("book-{{book.sno}}").innerHTML = bookName;
+                                        }
+                                        else {
+                                            document.getElementById("book-{{book.sno}}").innerHTML = "{{book.book_name[0:60]}}...";
+                                        }
+                                    </script>
                                 </td>
                                 <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
                                     {{book.book_code}}
                                 </td>
                                 <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
-                                    {{book.student_name[0:21]}}
+                                    <!-- {{book.student_name[0:20]}} -->
+                                    <span class="student-name" id="std-{{book.sno}}"></span>
+                                    <script>
+                                        var bookName = '{{book.student_name}}';
+                                        if (bookName.length <= 13) {
+                                            document.getElementById("std-{{book.sno}}").innerHTML = bookName;
+                                        } else {
+                                            document.getElementById("std-{{book.sno}}").innerHTML = bookName.split(' ')[0];
+                                        };
+                                    </script>
                                 </td>
                                 <td class=" text-gray-900  px-6 py-4 whitespace-nowrap">
                                     {{book.student_class}}

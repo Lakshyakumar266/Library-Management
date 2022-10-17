@@ -11,10 +11,14 @@
         },
         "pannel": "/dashbaord",
         "requrements": "requrements.txt",
+        "colourSchema": {
+            "Default": "Light",
+            "External": "Dark"
+        },
         "Information": {
             "BaseLanguage": "Python 3.X",
             "BaseLibrary": "Flask",
-            "database":"SQLAlchemy"
+            "database": "SQLAlchemy"
         },
         "license": "personal"
     }
