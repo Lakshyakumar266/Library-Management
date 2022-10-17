@@ -331,20 +331,20 @@ def returnTheBook(book_code, sno):
 
 def run():
     # Terminal CLI
-    # time.sleep(0.100)
-    # print('''LIBRARY - - ***** Welcome To Library System *****''')
-    # time.sleep(0.400)
-    # print('LIBRARY - - Created by. Lakshya')
-    # time.sleep(0.400)
-    # print('''SYSTEM - - Starting The Library... ''')
-    # time.sleep(0.400)
-    # print('''SYSTEM - - Initilizing Database... ''')
-    # time.sleep(0.600)
-    # print('''SYSTEM - - Loading... ''')
-    # time.sleep(1)
+    time.sleep(0.100)
+    print('''LIBRARY - - ***** Welcome To Library System *****''')
+    time.sleep(0.400)
+    print('LIBRARY - - Created by. Lakshya')
+    time.sleep(0.400)
+    print('''SYSTEM - - Starting The Library... ''')
+    time.sleep(0.400)
+    print('''SYSTEM - - Initilizing Database... ''')
+    time.sleep(0.600)
+    print('''SYSTEM - - Loading... ''')
+    time.sleep(1)
 
     # To Start GUI
-    # webbrowser.open('http://127.0.0.1:5000')    
+    webbrowser.open('http://127.0.0.1:5000')    
     app.run(debug=True)
 
 
