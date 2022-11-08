@@ -333,22 +333,36 @@ def run():
     # Terminal CLI
     time.sleep(0.100)
     print('''LIBRARY - - ***** Welcome To Library System *****''')
-    time.sleep(0.400)
+    time.sleep(0.200)
     print('LIBRARY - - Created by. Lakshya')
-    time.sleep(0.400)
+    time.sleep(0.200)
     print('''SYSTEM - - Starting The Library... ''')
-    time.sleep(0.400)
+    time.sleep(0.200)
     print('''SYSTEM - - Initilizing Database... ''')
-    time.sleep(0.600)
+    time.sleep(0.300)
     print('''SYSTEM - - Loading... ''')
-    time.sleep(1)
+    time.sleep(0.400)
 
     # To Start GUI
-    webbrowser.open('http://127.0.0.1:5000')    
+    # webbrowser.open('http://127.0.0.1:5000')    
     app.run(debug=False)
 
 
+
 if __name__ == "__main__":
-    run()
+
+    def webviewWindow():
+        import webview
+        webview.create_window("Library System", url="http://127.0.0.1:5000",height=700, width=1360)
+        webview.start()
+
+    import multiprocessing 
+    runProject = multiprocessing.Process(target=run)
+
+    runProject.start()
+    time.sleep(1)
+    webviewWindow()
+
+
     # import LibrarySystem
     # LibrarySystem.LibrarySystemUi().run()
