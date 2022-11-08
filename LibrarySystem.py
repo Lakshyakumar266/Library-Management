@@ -333,15 +333,15 @@ def run():
     # Terminal CLI
     time.sleep(0.100)
     print('''LIBRARY - - ***** Welcome To Library System *****''')
-    time.sleep(0.400)
+    time.sleep(0.200)
     print('LIBRARY - - Created by. Lakshya')
-    time.sleep(0.400)
+    time.sleep(0.200)
     print('''SYSTEM - - Starting The Library... ''')
-    time.sleep(0.400)
+    time.sleep(0.200)
     print('''SYSTEM - - Initilizing Database... ''')
-    time.sleep(0.600)
+    time.sleep(0.300)
     print('''SYSTEM - - Loading... ''')
-    time.sleep(1)
+    time.sleep(0.200)
 
     # To Start GUI
     # webbrowser.open('http://127.0.0.1:5000')    
